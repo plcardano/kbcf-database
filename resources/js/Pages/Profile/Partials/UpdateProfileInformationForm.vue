@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import { Link, router, useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/ActionMessage.vue';
-import FormSection from '@/Components/FormSection.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import ActionMessage from '@/ComponentsOld/ActionMessage.vue';
+import FormSection from '@/ComponentsOld/FormSection.vue';
+import InputError from '@/ComponentsOld/InputError.vue';
+import InputLabel from '@/ComponentsOld/InputLabel.vue';
+import PrimaryButton from '@/ComponentsOld/PrimaryButton.vue';
+import SecondaryButton from '@/ComponentsOld/SecondaryButton.vue';
+import TextInput from '@/ComponentsOld/TextInput.vue';
 
 const props = defineProps({
     user: Object,
@@ -15,7 +15,8 @@ const props = defineProps({
 
 const form = useForm({
     _method: 'PUT',
-    name: props.user.name,
+    first_name: props.user.first_name,
+    last_name: props.user.last_name,
     email: props.user.email,
     photo: null,
 });
@@ -128,18 +129,32 @@ const clearPhotoFileInput = () => {
                 <InputError :message="form.errors.photo" class="mt-2" />
             </div>
 
-            <!-- Name -->
+            <!-- First Name -->
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="first_name" value="First Name" />
                 <TextInput
-                    id="name"
-                    v-model="form.name"
+                    id="first_name"
+                    v-model="form.first_name"
                     type="text"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="name"
+                    autocomplete="first_name"
                 />
-                <InputError :message="form.errors.name" class="mt-2" />
+                <InputError :message="form.errors.first_name" class="mt-2" />
+            </div>
+
+            <!-- Last Name -->
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="last_name" value="Last Name" />
+                <TextInput
+                    id="last_name"
+                    v-model="form.last_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    required
+                    autocomplete="last_name"
+                />
+                <InputError :message="form.errors.last_name" class="mt-2" />
             </div>
 
             <!-- Email -->

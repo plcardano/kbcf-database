@@ -17,8 +17,8 @@ const colorClass = computed(() => {
   }
 
   switch (props.bg) {
-    case 'purplePink':
-      return gradientBgPurplePink
+    case 'dark':
+      return gradientBgDark
     case 'pinkRed':
       return gradientBgPinkRed
   }

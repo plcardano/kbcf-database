@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])
     })->name('dashboard');
 
     Route::get('/profile', function () {
-      return Inertia::render('HomeView');
+      return Inertia::render('Profile/Show');
     })->name('profile');
 
     // ACCOUNTS
@@ -44,6 +44,10 @@ Route::middleware(['auth', 'verified'])
         Route::prefix('users')->name('users.')
           ->controller(UserController::class)->group(function () {
             Route::get('/', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('edit/{user}', 'edit')->name('edit');
+            Route::post('store', 'store')->name('store');
+            Route::post('update/{user}', 'update')->name('update');
           });
       });
 });
