@@ -44,6 +44,10 @@ const props = defineProps({
     type: [String, Number, Boolean, Array, Object],
     default: ''
   },
+  error: {
+    type: String,
+    default: null
+  },
   required: Boolean,
   borderless: Boolean,
   transparent: Boolean,
@@ -161,5 +165,10 @@ if (props.ctrlKFocus) {
       :class="inputElClass"
     />
     <FormControlIcon v-if="icon" :icon="icon" :h="controlIconH" />
+  </div>
+  <div v-if="error">
+    <p class="text-red-500">
+      {{ error }}
+    </p>
   </div>
 </template>

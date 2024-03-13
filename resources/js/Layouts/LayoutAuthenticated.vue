@@ -22,9 +22,9 @@
         <NavBarItemPlain display="hidden lg:flex xl:hidden" @click.prevent="isAsideLgActive = true">
           <BaseIcon :path="mdiMenu" size="24" />
         </NavBarItemPlain>
-        <NavBarItemPlain use-margin>
+        <!-- <NavBarItemPlain use-margin>
           <FormControl placeholder="Search (ctrl+k)" ctrl-k-focus transparent borderless />
-        </NavBarItemPlain>
+        </NavBarItemPlain> -->
       </NavBar>
       <AsideMenu
         :is-aside-mobile-expanded="isAsideMobileExpanded"
@@ -36,13 +36,13 @@
 
       <template v-if="success">
         <NotificationBar color="info" :icon="mdiMonitorCellphone">
-          <b>Success!</b> Collapses on mobile
+          <b>{{ success }}</b>
         </NotificationBar>
       </template>
 
-      <template v-if="danger">
+      <template v-if="error">
         <NotificationBar color="danger" :icon="mdiMonitorCellphone">
-          <b>Error!</b> Collapses on mobile
+          <b>{{ error }}</b>
         </NotificationBar>
       </template>
       <slot />
@@ -72,7 +72,7 @@ import { router, usePage } from '@inertiajs/vue3'
 import NotificationBar from '@/components/NotificationBar.vue'
 
 const success = computed(() => usePage().props.flash.success)
-const danger = computed(() => usePage().props.flash.danger)
+const error = computed(() => usePage().props.flash.error)
 
 const layoutAsidePadding = 'xl:pl-60'
 

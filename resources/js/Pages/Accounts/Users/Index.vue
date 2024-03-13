@@ -6,6 +6,7 @@
         label="Create"
         color="info"
         :icon="mdiPlus"
+        :routeName="route('accounts.users.create')"
       />
     </SectionTitleLineWithButton>
 
@@ -20,24 +21,22 @@
         </thead>
         <tbody>
           <tr v-for="item in items.data" :key="item.id">
-            <TableCheckboxCell v-if="true" @checked="checked($event, item)" />
-            <td data-label="Name">
+            <!-- <TableCheckboxCell v-if="true" @checked="checked($event, item)" /> -->
+            <td>
               {{ item.first_name }}
             </td>
-            <td data-label="Company">
+            <td>
               {{ item.last_name }}
             </td>
-            <td data-label="City">
+            <td>
               {{ item.email }}
             </td>
-            <td data-label="Created" class="lg:w-1 whitespace-nowrap">
-              <small class="text-gray-500 dark:text-slate-400" :title="item.created_at">{{
-                item.created_at
-              }}</small>
+            <td>
+              {{ item.created_at_formatted }}
             </td>
             <td class="before:hidden lg:w-1 whitespace-nowrap">
               <BaseButtons type="justify-start lg:justify-end" no-wrap>
-                <BaseButton color="info" :icon="mdiEye" small @click="isModalActive = true" />
+                <BaseButton color="info" :icon="mdiEye" small :routeName="route('accounts.users.edit', item.id)" />
                 <BaseButton
                   color="danger"
                   :icon="mdiTrashCan"
@@ -143,11 +142,10 @@ const checked = (isChecked, client) => {
 }
 
 const headers = ref([
-  {name: ''},
   {name: 'First Name'},
   {name: 'Last Name'},
   {name: 'Email'},
-  {name: 'Created'},
-  {name: 'Action'},
+  {name: 'Date Created'},
+  {name: 'Action/s'},
 ])
 </script>
