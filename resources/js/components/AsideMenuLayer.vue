@@ -6,7 +6,7 @@
     <div class="aside lg:rounded-2xl flex-1 flex flex-col overflow-hidden bg-white dark:bg-slate-900">
       <div class="aside-brand flex flex-row h-14 items-center justify-between bg-white dark:bg-slate-900">
         <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-          <b class="font-black">KBCF</b>
+          <b class="font-black">KBCF - Database</b>
         </div>
         <button class="hidden lg:inline-block xl:hidden p-3" @click.prevent="asideLgCloseClick">
           <BaseIcon :path="mdiClose" />

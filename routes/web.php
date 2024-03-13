@@ -48,27 +48,8 @@ Route::middleware(['auth', 'verified'])
             Route::get('edit/{user}', 'edit')->name('edit');
             Route::post('store', 'store')->name('store');
             Route::post('update/{user}', 'update')->name('update');
+            Route::delete('archive/{user}', 'delete')->name('archive');
+            Route::patch('restore/{user}', 'restore')->name('restore')->withTrashed();
           });
       });
 });
-
-
-
-
-// Route::get('/dashboard', function () {
-//     return Inertia::render('HomeView');
-//   })->middleware(['auth', 'verified'])->name('dashboard');
-
-//   Route::get('/profile', function () {
-//     return Inertia::render('HomeView');
-//   })->middleware(['auth', 'verified'])->name('profile');
-
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return Inertia::render('Dashboard');
-//     })->name('dashboard');
-// });
