@@ -13,7 +13,14 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::paginate(10);
+        $users = User::query();
+
+        if ($request->tab == 'archived') {
+            $users = $users->onlyTrashed();
+        }
+
+        $users = $users->paginate(10)->appends(request()->query());
+
         return Inertia::render('Accounts/Users/Index', [
             'users' => $users
         ]);
@@ -53,5 +60,21 @@ class UserController extends Controller
 
         return redirect()->route('accounts.users.index')
             ->with('success', 'User successfully updated!');
+    }
+
+    public function delete(Request $request, User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('accounts.users.index')
+            ->with('success', 'User successfully archived!');
+    }
+
+    public function restore(Request $request, User $user)
+    {
+        $user->restore();
+
+        return redirect()->route('accounts.users.index', ['tab' => 'all'])
+            ->with('success', 'User successfully restore!');
     }
 }

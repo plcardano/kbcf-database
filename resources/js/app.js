@@ -6,6 +6,8 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import PrimeVue from 'primevue/config';
+import Lara from '../css/presets/lara';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 
@@ -20,6 +22,10 @@ createInertiaApp({
       .use(plugin)
       .use(pinia)
       .use(ZiggyVue, Ziggy)
+      .use(PrimeVue, {
+        unstyled: true,
+        pt: Lara
+      })
       .mount(el)
   },
   progress: {

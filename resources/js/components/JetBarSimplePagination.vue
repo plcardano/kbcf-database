@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-white px-4 py-3 my-1 flex items-center justify-between sm:px-6 w-full border-t sm:rounded-lg">
+    <div class="bg-white px-4 py-3 my-1 flex items-center justify-between sm:px-6 w-full border-t sm:rounded-lg dark:bg-slate-900">
         <div class="hidden lg:block">
-            <p class="text-sm leading-5 text-gray-700">
+            <p class="text-sm leading-5 text-gray-700 dark:text-white">
                 Showing
                 <span v-if="items.total">
                     <span class="font-medium">{{ items.from  }}</span>
@@ -14,7 +14,7 @@
             </p>
         </div>
 
-        <div class="flex-1 flex md:justify-between lg:justify-end">
+        <div class="flex-1 flex md:justify-between lg:justify-end ">
             <Link
                 v-if="items.prev_page_url"
                 :href="items.prev_page_url"

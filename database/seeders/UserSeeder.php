@@ -14,6 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        User::truncate();
+
         User::create([
             'first_name' => 'Admin',
             'last_name' => 'User',
@@ -21,5 +23,8 @@ class UserSeeder extends Seeder
             'contact_number' => '09112223344',
             'password' => Hash::make('password')
         ]);
+
+
+        User::factory(30)->create();
     }
 }
