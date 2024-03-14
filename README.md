@@ -35,6 +35,10 @@
         <ul>
             <li>php artisan serve</li>
         </ul>
+    <li>Run compiler:</li>
+        <ul>
+            <li>npm run dev</li>
+        </ul>
     <li>Open your browser:</li>
         <ul>
             <li>http://localhost:8000</li>
