@@ -3,7 +3,7 @@
 <ul>
     <li>Git clone this repository or download this as ZIP</li>
         <ul>
-            <li>https://github.com/kbcfdev/asset-management.git</li>
+            <li>https://github.com/plcardano/kbcf-database.git</li>
         </ul>
     <li>Update composer:</li>
         <ul>
