@@ -41,7 +41,7 @@
         </ul>
     <li>Default login:</li>
     
-        Username: admin
+        Email: admin@mail.com
         Password: password
 </ul>
 
