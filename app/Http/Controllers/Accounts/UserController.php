@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Accounts;
 
-use App\Models\User;
-use Inertia\Inertia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Accounts\UserStoreRequest;
+use App\Models\Accounts\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -22,7 +22,7 @@ class UserController extends Controller
         $users = $users->paginate(10)->appends(request()->query());
 
         return Inertia::render('Accounts/Users/Index', [
-            'users' => $users
+            'users' => $users,
         ]);
     }
 
@@ -46,7 +46,7 @@ class UserController extends Controller
     public function edit(Request $request, User $user)
     {
         return Inertia::render('Accounts/Users/Edit', [
-            'item' => $user
+            'item' => $user,
         ]);
     }
 

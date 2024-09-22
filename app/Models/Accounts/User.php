@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Accounts;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
@@ -61,7 +61,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
-        'created_at_formatted'
+        'created_at_formatted',
     ];
 
     public function getCreatedAtFormattedAttribute()
