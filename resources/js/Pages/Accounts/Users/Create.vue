@@ -1,7 +1,7 @@
 <template>
     <AppLayout>
         <SectionMain>
-            <SectionTitleLineWithButton :icon="mdiAccountCircle" title="Create User" main>
+            <SectionTitleLineWithButton :icon="mdiAccountCircle" title="Create Admin" main>
                 <BaseButton 
                     color="info" 
                     label="Back" 
@@ -21,14 +21,13 @@
 </template>
 
 <script setup>
-import { mdiAccountCircle, mdiAccount, mdiMail, mdiMonitorCellphone, mdiAsterisk } from '@mdi/js'
-import AppLayout from '@/Layouts/LayoutAuthenticated.vue';
-import SectionMain from '@/components/SectionMain.vue'
-import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue'
-import { ref } from 'vue'
+import AppLayout from '@/Layouts/AppLayout.vue';
+import BaseButton from '@/components/BaseButton.vue';
+import SectionMain from '@/components/SectionMain.vue';
+import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue';
 import { useForm } from '@inertiajs/vue3';
-import FormSection from './FormSection.vue'
-import BaseButton from '@/components/BaseButton.vue'
+import { mdiAccountCircle } from '@mdi/js';
+import FormSection from './FormSection.vue';
 
 const form = useForm({
   first_name: null,

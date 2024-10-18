@@ -1,7 +1,7 @@
 <template>
 <AppLayout>
   <SectionMain>
-    <SectionTitleLineWithButton :icon="mdiTableBorder" title="Users" main>
+    <SectionTitleLineWithButton :icon="mdiTableBorder" title="Admins" main>
       <BaseButton
         label="Create"
         color="info"
@@ -96,27 +96,19 @@
 </template>
 
 <script setup>
-import { mdiMonitorCellphone, mdiTableBorder, mdiTableOff, mdiGithub, mdiPlus, mdiRestore } from '@mdi/js'
-import SectionMain from '@/components/SectionMain.vue'
-import NotificationBar from '@/components/NotificationBar.vue'
-import TableSampleClients from '@/components/TableSampleClients.vue'
-import CardBox from '@/components/CardBox.vue'
-import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue'
 import BaseButton from '@/components/BaseButton.vue'
-import CardBoxComponentEmpty from '@/components/CardBoxComponentEmpty.vue'
-import AppLayout from '@/Layouts/LayoutAuthenticated.vue';
-import { computed, ref } from 'vue'
-import { mdiEye, mdiTrashCan } from '@mdi/js'
-import CardBoxModal from '@/components/CardBoxModal.vue'
-import TableCheckboxCell from '@/components/TableCheckboxCell.vue'
-import BaseLevel from '@/components/BaseLevel.vue'
 import BaseButtons from '@/components/BaseButtons.vue'
-import UserAvatar from '@/components/UserAvatar.vue'
-import clients from '@/components/data/clients.json'
+import CardBox from '@/components/CardBox.vue'
+import CardBoxModal from '@/components/CardBoxModal.vue'
 import Pagination from '@/components/JetBarSimplePagination.vue'
-import TabView from 'primevue/tabview';
-import TabPanel from 'primevue/tabpanel';
-import { router } from '@inertiajs/vue3';
+import SectionMain from '@/components/SectionMain.vue'
+import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue'
+import AppLayout from '@/Layouts/AppLayout.vue'
+import { router } from '@inertiajs/vue3'
+import { mdiEye, mdiPlus, mdiRestore, mdiTableBorder, mdiTrashCan } from '@mdi/js'
+import TabPanel from 'primevue/tabpanel'
+import TabView from 'primevue/tabview'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   users: {

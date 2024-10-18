@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Accounts;
 
-use App\Models\User;
-use Inertia\Inertia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Accounts\UserStoreRequest;
+use App\Models\Accounts\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $users = User::query();
 
@@ -22,7 +24,7 @@ class UserController extends Controller
         $users = $users->paginate(10)->appends(request()->query());
 
         return Inertia::render('Accounts/Users/Index', [
-            'users' => $users
+            'users' => $users,
         ]);
     }
 
@@ -31,7 +33,7 @@ class UserController extends Controller
         return Inertia::render('Accounts/Users/Create');
     }
 
-    public function store(UserStoreRequest $request)
+    public function store(UserStoreRequest $request): RedirectResponse
     {
         $vars = $request->validated();
 
@@ -40,17 +42,17 @@ class UserController extends Controller
         User::create($vars);
 
         return redirect()->route('accounts.users.index')
-            ->with('success', 'User successfully created!');
+            ->with('success', 'Admin successfully created!');
     }
 
-    public function edit(Request $request, User $user)
+    public function edit(Request $request, User $user): Response
     {
         return Inertia::render('Accounts/Users/Edit', [
-            'item' => $user
+            'item' => $user,
         ]);
     }
 
-    public function update(UserStoreRequest $request, User $user)
+    public function update(UserStoreRequest $request, User $user): RedirectResponse
     {
         $vars = $request->validated();
 
@@ -59,22 +61,22 @@ class UserController extends Controller
         $user->update($vars);
 
         return redirect()->route('accounts.users.index')
-            ->with('success', 'User successfully updated!');
+            ->with('success', 'Admin successfully updated!');
     }
 
-    public function delete(Request $request, User $user)
+    public function delete(Request $request, User $user): RedirectResponse
     {
         $user->delete();
 
         return redirect()->route('accounts.users.index')
-            ->with('success', 'User successfully archived!');
+            ->with('success', 'Admin successfully archived!');
     }
 
-    public function restore(Request $request, User $user)
+    public function restore(Request $request, User $user): RedirectResponse
     {
         $user->restore();
 
         return redirect()->route('accounts.users.index', ['tab' => 'all'])
-            ->with('success', 'User successfully restore!');
+            ->with('success', 'Admin successfully restore!');
     }
 }

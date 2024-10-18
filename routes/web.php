@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Accounts\UserController;
+use App\Http\Controllers\Individuals\IndividualController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -51,5 +52,18 @@ Route::middleware(['auth', 'verified'])
             Route::delete('archive/{user}', 'delete')->name('archive');
             Route::patch('restore/{user}', 'restore')->name('restore')->withTrashed();
           });
+      });
+
+    // PEOPLE
+    Route::prefix('individuals')->name('individuals.')
+      ->controller(IndividualController::class)
+      ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::get('edit/{user}', 'edit')->name('edit');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{user}', 'update')->name('update');
+        Route::delete('archive/{user}', 'delete')->name('archive');
+        Route::patch('restore/{user}', 'restore')->name('restore')->withTrashed();
       });
 });
