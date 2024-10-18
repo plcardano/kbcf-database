@@ -2,7 +2,7 @@
 
 use App\Models\Event\Event;
 use App\Enums\AttendanceType;
-use App\Models\People\People;
+use App\Models\Individuals\Individual;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(People::class);
+            $table->foreignIdFor(Individual::class);
             $table->foreignIdFor(Event::class);
             $table->unsignedTinyInteger('status')->comment(AttendanceType::class);
             $table->string('remarks');

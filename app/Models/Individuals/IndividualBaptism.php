@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models\People;
+namespace App\Models\Individuals;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PeopleBaptism extends Model
+class IndividualBaptism extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'people_id',
+        'individual_id',
         'spiritual_birth_date',
         'baptismal_class',
         'baptismal_class_date',

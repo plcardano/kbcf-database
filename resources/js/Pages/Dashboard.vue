@@ -1,6 +1,5 @@
 <script setup>
-import AppLayout from '@/Layouts/LayoutAuthenticated.vue';
-import TablesView from './TablesView.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 </script>
 
 <template>

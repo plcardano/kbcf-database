@@ -1,7 +1,7 @@
 <?php
 
 use App\Enums\DisciplerStatus;
-use App\Models\People\People;
+use App\Models\Individuals\Individual;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('discipleship_involvements', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(People::class);
+            $table->foreignIdFor(Individual::class);
             $table->year('year_start');
             $table->year('year_end');
-            $table->foreignIdFor(People::class, 'discipler_id')->nullable();
+            $table->foreignIdFor(Individual::class, 'discipler_id')->nullable();
             $table->string('discipler_name')->nullable();
             $table->unsignedTinyInteger('is_discipler')->comment(DisciplerStatus::class);
             $table->string('assistant_leader')->nullable();

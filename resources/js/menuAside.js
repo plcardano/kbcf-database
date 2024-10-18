@@ -1,16 +1,6 @@
 import {
   mdiAccountCircle,
-  mdiMonitor,
-  mdiGithub,
-  mdiLock,
-  mdiAlertCircle,
-  mdiSquareEditOutline,
-  mdiTable,
-  mdiViewList,
-  mdiTelevisionGuide,
-  mdiResponsive,
-  mdiPalette,
-  mdiReact
+  mdiMonitor
 } from '@mdi/js'
 
 export default [
@@ -31,6 +21,16 @@ export default [
         route: 'dashboard',
         label: 'Roles'
       }
+    ]
+  },
+  {
+    label: 'Individual',
+    icon: mdiAccountCircle,
+    menu: [
+      {
+        route: 'individuals.index',
+        label: 'Individual'
+      },
     ]
   },
   // {

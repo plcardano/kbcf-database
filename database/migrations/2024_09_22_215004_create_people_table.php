@@ -3,7 +3,7 @@
 use App\Enums\Gender;
 use App\Enums\CivilStatus;
 use App\Enums\AttenderType;
-use App\Enums\PeopleStatus;
+use App\Enums\IndividualStatus;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('individuals', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->string('company')->nullable();
             $table->string('position')->nullable();
-            $table->unsignedTinyInteger('status')->comment(PeopleStatus::class);
+            $table->unsignedTinyInteger('status')->comment(IndividualStatus::class);
             $table->unsignedTinyInteger('type')->comment(AttenderType::class);
             $table->timestamps();
             $table->softDeletes();
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('individual');
     }
 };

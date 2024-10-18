@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Enums;
+use App\Traits\BaseEnumTrait;
 
 enum Gender: int 
 {
+    use BaseEnumTrait;
+
     case MALE = 1;
     case FEMALE = 2;
 

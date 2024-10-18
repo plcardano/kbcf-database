@@ -1,15 +1,13 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Accounts;
 
-use App\Models\Team;
-use App\Models\User;
+use App\Models\Accounts\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Laravel\Jetstream\Features;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Accounts\User>
  */
 class UserFactory extends Factory
 {
@@ -25,7 +23,7 @@ class UserFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'contact_number' => $this->faker->phoneNumber()
+            'contact_number' => $this->faker->phoneNumber(),
         ];
     }
 }

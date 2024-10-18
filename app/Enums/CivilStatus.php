@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Enums;
+use App\Traits\BaseEnumTrait;
 
 enum CivilStatus: int
 {
+    use BaseEnumTrait;
+
     case SINGLE = 1;
     case MARRIED = 2;
     case DIVORCED = 3;

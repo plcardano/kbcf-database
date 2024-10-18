@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models\People;
+namespace App\Models\Individuals;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PeopleMembership extends Model
+class IndividualMembership extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'people_id',
+        'individual_id',
         'former_church',
         'former_church_address',
         'year_attended',

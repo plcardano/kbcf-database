@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\People\People;
+use App\Models\Individuals\Individual;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(People::class);
+            $table->foreignIdFor(Individual::class);
             $table->string('address_1');
             $table->string('address_2')->nullable();
             $table->string('region');

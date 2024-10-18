@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Enums;
+use App\Traits\BaseEnumTrait;
 
 enum AttenderType: int
 {
+    use BaseEnumTrait;
+
     case REGULAR_MEMBER = 1;
     case REGULAR_ATTENDER = 2;
     case OCCASIONAL_ATTENDER = 3;

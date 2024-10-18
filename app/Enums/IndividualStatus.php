@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Enums;
+use App\Traits\BaseEnumTrait;
 
-enum PeopleStatus: int
+enum IndividualStatus: int
 {
+    use BaseEnumTrait;
+
     case MEMBER = 1;
     case ATTENDER = 2;
     case VISITOR = 3;

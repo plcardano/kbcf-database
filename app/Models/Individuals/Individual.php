@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Models\People;
+namespace App\Models\Individuals;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class People extends Model
+class Individual extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'first_name',
