@@ -1,7 +1,7 @@
 <script setup>
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
-import { useMainStore } from '@/stores/main'
-import FormControlIcon from '@/components/FormControlIcon.vue'
+import FormControlIcon from '@/components/FormControlIcon.vue';
+import { useMainStore } from '@/stores/main';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const props = defineProps({
   name: {
@@ -136,7 +136,7 @@ if (props.ctrlKFocus) {
       :name="name"
       :class="inputElClass"
     >
-      <option v-for="option in options" :key="option.id ?? option" :value="option">
+      <option v-for="option in options" :key="option.id ?? option" :value="option.id">
         {{ option.label ?? option }}
       </option>
     </select>

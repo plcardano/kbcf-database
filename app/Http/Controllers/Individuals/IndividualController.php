@@ -9,8 +9,11 @@ use App\Enums\Gender;
 use App\Enums\IndividualStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Accounts\UserStoreRequest;
+use App\Http\Requests\Individuals\IndividualFormRequest;
 use App\Models\Accounts\User;
 use App\Models\Individuals\Individual;
+use App\Models\Ministry\MinistryCategory;
+use App\Services\Individual\IndividualService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -45,15 +48,14 @@ class IndividualController extends Controller
             'statuses' => IndividualStatus::renderOption(),
             'types' => AttenderType::renderOption(),
             'relations' => FamilyRelation::renderOption(),
-            'individuals' => $individuals
+            'individuals' => $individuals,
+            'ministries' => MinistryCategory::with('ministries')->get()
         ]);
     }
 
-    public function store(UserStoreRequest $request): RedirectResponse
+    public function store(IndividualFormRequest $request): RedirectResponse
     {
-        $vars = $request->validated();
-
-        Individual::create($vars);
+        app(IndividualService::class)->create($request);
 
         return redirect()->route('individuals.index')
             ->with('success', 'Individual successfully created!');

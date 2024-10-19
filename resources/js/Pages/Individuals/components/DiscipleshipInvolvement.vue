@@ -16,7 +16,7 @@
                     <FormControl 
                         v-model="item.year_start" 
                         :icon="mdiAccount" 
-                        :error="form.errors?.[index]?.year_start"
+                        :error="item.errors?.[index]?.year_start"
                     />
                 </FormField>
 
@@ -24,7 +24,7 @@
                     <FormControl 
                         v-model="item.year_end" 
                         :icon="mdiAccount" 
-                        :error="form.errors?.[index]?.year_end"
+                        :error="item.errors?.[index]?.year_end"
                     />
                 </FormField>
             </div>
@@ -34,7 +34,7 @@
                     <FormControl 
                         v-model="item.discipler_id" 
                         :icon="mdiAccount" 
-                        :error="form.errors?.[index]?.discipler_id"
+                        :error="item.errors?.[index]?.discipler_id"
                         type="select"
                         :options="individuals"
                     />
@@ -44,7 +44,7 @@
                     <FormControl 
                         v-model="item.discipler_name" 
                         :icon="mdiAccount" 
-                        :error="form.errors?.[index]?.discipler_name"
+                        :error="item.errors?.[index]?.discipler_name"
                     />
                 </FormField>
             </div>
@@ -54,10 +54,21 @@
                     <FormControl 
                         v-model="item.assistant_leader" 
                         :icon="mdiAccount" 
-                        :error="form.errors?.[index]?.assistant_leader"
+                        :error="item.errors?.[index]?.assistant_leader"
                     />
                 </FormField>
             </div>
+
+            <div class="flex flex-col">
+        <div>
+            <jet-checkbox
+                :value="true"
+                v-model:checked="item.is_discipler"
+                id="is_active"
+            />
+            <label class="font-bold ml-2">Is Discipler?</label>
+        </div>
+    </div>
         </div>
 
         <BaseButtons>
@@ -69,6 +80,7 @@
 <script setup>
 import BaseButton from '@/components/BaseButton.vue';
 import BaseButtons from '@/components/BaseButtons.vue';
+import JetCheckbox from "@/components/Checkbox.vue";
 import FormControl from '@/components/FormControl.vue';
 import FormField from '@/components/FormField.vue';
 import { mdiTrashCan } from '@mdi/js';
@@ -85,6 +97,7 @@ const addItem = () => {
         discipler_id: '',
         discipler_name: '',
         assistant_leader: '',
+        is_discipler: false
     });
 };
 

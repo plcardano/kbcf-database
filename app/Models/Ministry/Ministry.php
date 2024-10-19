@@ -4,6 +4,7 @@ namespace App\Models\Ministry;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ministry extends Model
@@ -15,4 +16,12 @@ class Ministry extends Model
         'ministry_category_id',
         'name'
     ];
+
+    /**
+     * RELATIONSHIPS
+     */
+    public function ministryCategory(): BelongsTo
+    {
+        return $this->belongsTo(MinistryCategory::class);
+    }
 }

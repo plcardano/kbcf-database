@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(MinistryCategory::class);
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

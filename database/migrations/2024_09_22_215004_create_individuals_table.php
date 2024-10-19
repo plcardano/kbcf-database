@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->unsignedTinyInteger('status')->comment(IndividualStatus::class);
             $table->unsignedTinyInteger('type')->comment(AttenderType::class);
+            $table->boolean('waiver_signed')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

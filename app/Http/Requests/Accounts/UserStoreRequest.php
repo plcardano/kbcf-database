@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Accounts;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserStoreRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UserStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -26,7 +27,7 @@ class UserStoreRequest extends FormRequest
             'last_name' => ['required', 'string'],
             'contact_number' => ['nullable'],
             'password' => ['nullable'],
-            'email' => ['required', 'email']
+            'email' => ['required', 'email'],
         ];
     }
 }

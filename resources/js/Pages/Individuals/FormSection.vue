@@ -31,10 +31,29 @@
             :individuals="individuals"
         />
 
+        <Ministry 
+            v-if="activeTab === 4" 
+            :form="form" 
+            :ministries="ministries"
+        />
+
+        <Baptism 
+            v-if="activeTab === 5" 
+            :form="form" 
+            :individuals="individuals"
+        />
+
+        <Membership 
+            v-if="activeTab === 6" 
+            :form="form" 
+            :individuals="individuals"
+        />
+
         <template #footer>
             <BaseButtons>
                 <BaseButton v-if="activeTab > 1" @click="previousPage" type="button" color="info" outline label="Previous" />
-                <BaseButton @click="nextPage" type="button" color="info" outline label="Next" />
+                <BaseButton v-if="activeTab !== 6" @click="nextPage" type="button" color="info" outline label="Next" />
+                <BaseButton v-if="activeTab === 6" @click="$emit('submit')" type="button" color="info" label="Submit" />
             </BaseButtons>
         </template>
     </CardBox>
@@ -47,9 +66,12 @@ import CardBox from '@/components/CardBox.vue'
 import TabPanel from 'primevue/tabpanel'
 import TabView from 'primevue/tabview'
 import { ref } from 'vue'
+import Baptism from './components/Baptism.vue'
 import BasicInformation from './components/BasicInformation.vue'
 import DiscipleshipInvolvement from './components/DiscipleshipInvolvement.vue'
 import FamilyInformation from './components/FamilyInformation.vue'
+import Membership from './components/Membership.vue'
+import Ministry from './components/Ministry.vue'
 
 const props = defineProps({
     form: {
@@ -61,7 +83,8 @@ const props = defineProps({
     statuses: Object,
     types: Object,
     relations: Object,
-    individuals: Object
+    individuals: Object,
+    ministries: Object
 })
 
 const form = ref(props.form);
@@ -72,6 +95,9 @@ const tabs = ref([
     { value: 1, name: 'Basic Information' },
     { value: 2, name: 'Family Information' },
     { value: 3, name: 'Discipleship Involvement' },
+    { value: 4, name: 'Ministry Involvement' },
+    { value: 5, name: 'Baptism' },
+    { value: 6, name: 'Membership' },
 ]);
 
 const selectedTab = () => {

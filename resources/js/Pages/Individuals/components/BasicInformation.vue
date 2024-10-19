@@ -39,7 +39,7 @@
         <FormField label="Birth Date">
             <FormControl 
                 v-model="form.birth_date" 
-                :icon="mdiAccount" 
+                :icon="mdiCalendar" 
                 :error="form.errors.birth_date"
                 type="date"
             />
@@ -48,7 +48,7 @@
         <FormField label="Gender">
             <FormControl 
                 v-model="form.gender" 
-                :icon="mdiAccount" 
+                :icon="mdiGenderMaleFemale" 
                 :error="form.errors.gender"
                 type="select"
                 :options="gender"
@@ -87,7 +87,7 @@
         <FormField label="Telephone Number">
             <FormControl 
                 v-model="form.telephone_number" 
-                :icon="mdiMonitorCellphone" 
+                :icon="mdiPhone" 
                 :error="form.errors.telephone_number"
             />
         </FormField>
@@ -118,7 +118,7 @@
         <FormField label="Status">
             <FormControl 
                 v-model="form.status" 
-                :icon="mdiAccount" 
+                :icon="mdiCheckCircle" 
                 :error="form.errors.status"
                 type="select"
                 :options="statuses"
@@ -128,7 +128,7 @@
         <FormField label="Type">
             <FormControl 
                 v-model="form.type" 
-                :icon="mdiAccount" 
+                :icon="mdiShape" 
                 :error="form.errors.type"
                 type="select"
                 :options="types"
@@ -161,6 +161,16 @@
 import JetCheckbox from "@/components/Checkbox.vue";
 import FormControl from '@/components/FormControl.vue';
 import FormField from '@/components/FormField.vue';
+import {
+    mdiAccount,
+    mdiCalendar,
+    mdiCheckCircle,
+    mdiGenderMaleFemale,
+    mdiMail,
+    mdiMonitorCellphone,
+    mdiPhone,
+    mdiShape
+} from '@mdi/js';
 
 defineProps({
     form: Object,
@@ -168,5 +178,5 @@ defineProps({
     gender: Object,
     statuses: Object,
     types: Object
-})
+});
 </script>

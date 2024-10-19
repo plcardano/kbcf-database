@@ -17,6 +17,7 @@
                 :types="types"
                 :relations="relations"
                 :individuals="individuals"
+                :ministries="ministries"
                 @submit="submit"
                 @reset="reset"
             >
@@ -41,17 +42,56 @@ defineProps({
     statuses: Object,
     types: Object,
     relations: Object,
-    individuals: Object
+    individuals: Object,
+    ministries: Object
 })
     
 const form = useForm({
-  first_name: null,
-  last_name: null,
-  email: null,
-  contact_number: null,
-  password: null,
-  family: [],
-  discipleship_involvement: [],
+    first_name: null,
+    last_name: null,
+    middle_name: null,
+    nickname: null,
+    birth_date: null,
+    gender: null,
+    email: null,
+    mobile_number: null,
+    telephone_number: null,
+    civil_status: null,
+    is_active: false,
+    occupation: null,
+    company: null,
+    position: null,
+    status: null,
+    type: null,
+    waiver_signed: false,
+    family: [],
+    discipleship_involvement: [],
+    ministry_ids: [],
+
+    // Baptism
+    spiritual_birthdate: null,
+    baptismal_class: null,
+    baptismal_class_date: null,
+    baptismal_class_facilitator_id: null,
+    baptismal_date: null,
+    baptismal_minster_id: null,
+    church_baptism_facilitator: null,
+    church_facilitator_address: null,
+
+    // Membership
+    former_church: null,
+    former_church_address: null,
+    year_attended: null,
+    inviter_id: null,
+    inviter: null,
+    membership_class: null,
+    membership_class_date: null,
+    membership_class_facilitator_id: null,
+    membership_date: null,
+    kbcf_sof: null,
+    church_covenant: null,
+    members_covenant: null,
+    notified_former_church: null,
 })
 
 const reset = () => {
@@ -63,7 +103,7 @@ const reset = () => {
 }
 
 const submit = () => {
-  form.post(route('individuals.store'), 
+    form.post(route('individuals.store'), 
         { preserveState: true }
     )
 }

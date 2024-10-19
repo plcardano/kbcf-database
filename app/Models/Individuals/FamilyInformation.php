@@ -17,5 +17,6 @@ class FamilyInformation extends Model
         'nickname',
         'birth_date',
         'gender',
+        'relation',
     ];
 }
